@@ -1,18 +1,19 @@
-import styled from '@emotion/styled';
+import { Outlet } from 'react-router-dom';
 
-const App = () => {
-  const name = 'Josh Perez';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import { AuthProvider } from '@/context/AuthProvider';
 
+function App() {
   return (
-    <div>
-      <Title>Hello, {name}</Title>
-    </div>
+    <AuthProvider>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </AuthProvider>
   );
-};
+}
 
 export default App;
-
-const Title = styled.h1`
-  font-size: 1.5em;
-  color: gray;
-`;
